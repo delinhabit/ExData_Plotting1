@@ -8,13 +8,11 @@ data <- loadProjectData(dataset.url)
 
 png("plot3.png")
 
-plot(
-    Sub_metering_1 ~ DateTime,
+plot(Sub_metering_1 ~ DateTime,
     data = data,
     type = "l",
     xlab = "",
-    ylab = "Energy sub metering",
-    col = "black")
+    ylab = "Energy sub metering")
 lines(Sub_metering_2 ~ DateTime, data = data, col = "red")
 lines(Sub_metering_3 ~ DateTime, data = data, col = "blue")
 legend(
