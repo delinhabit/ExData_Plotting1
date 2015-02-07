@@ -1,10 +1,6 @@
 source("load.R")
 
-dataset.url <- paste(
-    c("https://d396qusza40orc.cloudfront.net",
-      "exdata%2Fdata%2Fhousehold_power_consumption.zip"),
-    collapse="/")
-data <- loadProjectData(dataset.url)
+data <- loadProjectData()
 
 png("plot1.png")
 

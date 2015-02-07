@@ -2,10 +2,14 @@ library(dplyr)
 library(lubridate)
 source("io.R")
 
-loadProjectData <- function(url, filename = "household_power_consumption.txt") {
-    dataset.filename <- downloadData(url)
+loadProjectData <- function() {
+    dataset.url <- paste(
+        c("https://d396qusza40orc.cloudfront.net",
+          "exdata%2Fdata%2Fhousehold_power_consumption.zip"),
+        collapse="/")
+    dataset.filename <- downloadData(dataset.url)
 
-    readData(dataset.filename, filename) %>%
+    readData(dataset.filename, "household_power_consumption.txt") %>%
         tbl_df %>%
         filter(Date == "1/2/2007" | Date == "2/2/2007") %>%
         mutate(
