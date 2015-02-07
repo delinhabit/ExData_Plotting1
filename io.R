@@ -1,6 +1,3 @@
-library(dplyr)
-library(lubridate)
-
 downloadData <- function(url, filename = NULL) {
     # Download the data from the provided URL and return the path to the
     # downloaded file.
@@ -38,8 +35,7 @@ inferFilenameFromUrl <- function(url) {
 }
 
 readData <- function(zipFilename, filename) {
-    # Read the data located in the provided file inside the zip archive and
-    # return a `dplyr::tbl_df` instance.
+    # Read the data located in the provided file inside the zip archive.
     #
     # Arguments:
     #    zipFilename - the name of the zip file containing data files
@@ -50,5 +46,5 @@ readData <- function(zipFilename, filename) {
     #          "household_power_consumption.txt")
     #
     conn <- unz(zipFilename, filename = filename)
-    tbl_df(read.csv2(conn, dec = ".", stringsAsFactors = FALSE))
+    read.csv2(conn, dec = ".", stringsAsFactors = FALSE)
 }
