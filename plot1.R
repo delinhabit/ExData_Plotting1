@@ -1,4 +1,4 @@
-source("io.R")
+source("load.R")
 
 dataset.url <- paste(
     c("https://d396qusza40orc.cloudfront.net",
@@ -14,4 +14,4 @@ hist(
     main = "Global Active Power",
     xlab = "Global Active Power (kilowatts)")
 
-dev.off()
+invisible(dev.off())
